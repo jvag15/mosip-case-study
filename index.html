@@ -2,159 +2,255 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>MOSIP Case Study</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MOSIP Showcase</title>
   <style>
     * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
     }
 
     body {
       font-family: 'Segoe UI', sans-serif;
-      background: #0d1b2a;
+      background-color: #0d1b2a;
       color: #e0e1dd;
-      scroll-behavior: smooth;
+      overflow-x: hidden;
     }
 
-    section {
-      width: 100%;
-    }
-
+    /* Hero */
     .hero {
-      height: 100vh;
-      background: url('Screenshot 2025-06-20 114904.png') center center/cover no-repeat;
-    }
-
-    .transition {
-      height: 100vh;
-      background: #0d1b2a;
-    }
-
-    .sticky-wrapper {
-      height: 100vh;
-      position: relative;
-      z-index: 1;
-    }
-
-    .sticky-content {
-      position: sticky;
-      top: 0;
+      background: #0077cc;
       height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
-      flex-direction: column;
-      text-align: center;
-      background: #0d1b2a;
+      position: relative;
+    }
+
+    .hero h1 {
+      font-size: 4rem;
       color: white;
-      animation: riseUp 1.4s ease forwards;
     }
 
-    @keyframes riseUp {
-      0% {
-        transform: translateY(100%);
-        opacity: 0;
-      }
-      100% {
-        transform: translateY(0%);
-        opacity: 1;
-      }
-    }
-
-    .sticky-content h1 {
-      font-size: 64px;
-      font-weight: bold;
-    }
-
-    .sticky-content p {
-      font-size: 20px;
-      margin-top: 10px;
-      opacity: 0.8;
-    }
-
-    .spacer {
-      height: 120vh;
-    }
-
-    .content-section {
-      padding: 80px 40px;
-      max-width: 1200px;
-      margin: auto;
-    }
-
-    .content-section h2 {
-      font-size: 36px;
-      margin-bottom: 24px;
-    }
-
-    .content-section p {
-      font-size: 18px;
-      line-height: 1.7;
-      margin-bottom: 20px;
-    }
-
-    footer {
-      background: #1b263b;
+    /* Sticky Title */
+    .sticky-title {
+      position: sticky;
+      top: 0;
+      background: #0d1b2a;
+      padding: 20px;
       text-align: center;
-      padding: 80px 20px;
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: #fca311;
+      z-index: 999;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .sticky-title.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    section {
+      padding: 80px 40px;
+    }
+
+    .content {
+      max-width: 960px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+      line-height: 1.7;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .highlight {
+      font-weight: bold;
       color: #ffffff;
     }
 
     .cta {
-      font-size: 28px;
-      font-weight: bold;
+      text-align: center;
+      background: #1b263b;
+      padding: 60px 20px;
+    }
+
+    .cta h3 {
+      font-size: 1.8rem;
       margin-bottom: 20px;
     }
 
-    .cta-button {
+    .cta button {
+      padding: 12px 28px;
+      font-size: 1rem;
       background: #fca311;
-      color: black;
       border: none;
-      padding: 14px 28px;
-      font-size: 16px;
-      border-radius: 6px;
+      color: #000;
+      font-weight: bold;
       cursor: pointer;
+      border-radius: 8px;
       transition: background 0.3s ease;
     }
 
-    .cta-button:hover {
+    .cta button:hover {
       background: #ffb733;
+    }
+
+    /* Carousel */
+    .carousel-section {
+      background-color: #0d1b2a;
+      padding: 80px 40px;
+      text-align: center;
+    }
+
+    .carousel {
+      position: relative;
+      max-width: 700px;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+
+    .carousel-item {
+      display: none;
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out;
+    }
+
+    .carousel-item.active {
+      display: block;
+      opacity: 1;
+    }
+
+    .carousel-item p {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+    }
+
+    .carousel-item span {
+      display: block;
+      font-weight: bold;
+      color: #fca311;
+    }
+
+    /* Image Grid */
+    .image-grid-section {
+      background-color: #14213d;
+      padding: 80px 40px;
+      text-align: center;
+    }
+
+    .image-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      margin-top: 40px;
+    }
+
+    .image-grid img {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+      transition: transform 0.3s ease;
+    }
+
+    .image-grid img:hover {
+      transform: scale(1.03);
     }
   </style>
 </head>
 <body>
 
-  <!-- Hero Image Fullscreen -->
-  <section class="hero"></section>
+  <!-- Hero Section -->
+  <div class="hero">
+    <h1>MOSIP</h1>
+  </div>
 
-  <!-- Blank Transition -->
-  <section class="transition"></section>
+  <!-- Sticky Title -->
+  <div id="stickyTitle" class="sticky-title">Building Trust Through Identity</div>
 
-  <!-- Sticky Text -->
-  <section class="sticky-wrapper">
-    <div class="sticky-content">
-      <h1>MOSIP</h1>
-      <p>Building Trust Through Identity</p>
+  <!-- About Section -->
+  <section>
+    <div class="content">
+      <h2>What is MOSIP?</h2>
+      <p>
+        <span class="highlight">The Modular Open Source Identity Platform (MOSIP)</span>
+        helps governments deliver secure, inclusive national ID systems.
+        It’s <span class="highlight">open-source</span>, <span class="highlight">privacy-first</span>,
+        and supports <span class="highlight">over 90 million identities</span> worldwide.
+      </p>
+      <br>
+      <p>
+        With a foundational national ID system in place, governments can build effective civil registries
+        and service delivery systems—powering everything from financial inclusion to healthcare access,
+        disaster relief, and digital governance.
+      </p>
     </div>
   </section>
 
-  <!-- Spacer to control exit -->
-  <div class="spacer"></div>
+  <!-- Call to Action -->
+  <div class="cta">
+    <h3>Have a project in mind?</h3>
+    <button>Work With Us</button>
+  </div>
 
-  <!-- Main Content -->
-  <section class="content-section">
-    <h2>What is MOSIP?</h2>
-    <p><strong>The Modular Open Source Identity Platform (MOSIP)</strong> helps governments deliver secure, inclusive national ID systems. It’s <strong>open-source</strong>, <strong>privacy-first</strong>, and supports <strong>over 90 million identities</strong> worldwide.</p>
-    <p>With a foundational national ID system in place, governments can build effective civil registries and service delivery systems—powering everything from financial inclusion to healthcare access, disaster relief, and digital governance.</p>
+  <!-- Carousel Section -->
+  <section class="carousel-section">
+    <div class="carousel" id="carousel">
+      <div class="carousel-item active">
+        <p>“We built a flexible, scalable identity system that respects local culture and global standards.”</p>
+        <span>– Design Lead</span>
+      </div>
+      <div class="carousel-item">
+        <p>“MOSIP’s UX framework mirrors the modularity of the tech—designed to adapt, built to grow.”</p>
+        <span>– UX Strategist</span>
+      </div>
+      <div class="carousel-item">
+        <p>“Cross-continent collaboration made this project dynamic, human-centered, and incredibly rewarding.”</p>
+        <span>– Visual Designer</span>
+      </div>
+    </div>
   </section>
 
-  <!-- Footer CTA -->
-  <footer>
-    <div class="cta">Have a project in mind?</div>
-    <button class="cta-button">Work With Us</button>
-  </footer>
+  <!-- Image Grid Section -->
+  <section class="image-grid-section">
+    <h2>Moodboards & Visuals</h2>
+    <div class="image-grid">
+      <img src="images/image1.png" alt="Visual 1">
+      <img src="images/image2.png" alt="Visual 2">
+      <img src="images/image3.png" alt="Visual 3">
+      <img src="images/image4.png" alt="Visual 4">
+      <img src="images/image5.png" alt="Visual 5">
+      <img src="images/image6.png" alt="Visual 6">
+    </div>
+  </section>
 
+  <!-- Scripts -->
+  <script>
+    // Reveal Sticky Title after Hero
+    const stickyTitle = document.getElementById("stickyTitle");
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > window.innerHeight * 0.9) {
+        stickyTitle.classList.add("visible");
+      } else {
+        stickyTitle.classList.remove("visible");
+      }
+    });
+
+    // Carousel Logic
+    const items = document.querySelectorAll('.carousel-item');
+    let index = 0;
+
+    setInterval(() => {
+      items[index].classList.remove('active');
+      index = (index + 1) % items.length;
+      items[index].classList.add('active');
+    }, 4000);
+  </script>
 </body>
 </html>
