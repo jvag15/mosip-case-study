@@ -2,165 +2,68 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MOSIP Showcase</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MOSIP Case Study</title>
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
     body {
+      margin: 0;
       font-family: 'Segoe UI', sans-serif;
-      background-color: #0d1b2a;
+      background-color: #0f1b2c;
       color: #e0e1dd;
-      overflow-x: hidden;
     }
 
-    /* Hero */
+    /* HERO SECTION */
     .hero {
-      background: #0077cc;
       height: 100vh;
+      background: #0051ff;
       display: flex;
-      align-items: center;
       justify-content: center;
-      position: relative;
-    }
-
-    .hero h1 {
-      font-size: 4rem;
+      align-items: center;
       color: white;
+      font-size: 3em;
+      font-weight: bold;
+      text-align: center;
     }
 
-    /* Sticky Title */
-    .sticky-title {
+    /* STICKY HEADER SECTION */
+    .sticky-bar {
       position: sticky;
       top: 0;
-      background: #0d1b2a;
-      padding: 20px;
+      background: #0f1b2c;
+      color: #fff;
+      padding: 1.5rem;
       text-align: center;
-      font-size: 2.5rem;
+      font-size: 2em;
       font-weight: bold;
-      color: #fca311;
-      z-index: 999;
-      opacity: 0;
-      transform: translateY(50px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
+      z-index: 100;
+      animation: riseIn 0.7s ease-in-out;
     }
 
-    .sticky-title.visible {
-      opacity: 1;
-      transform: translateY(0);
+    @keyframes riseIn {
+      0% { transform: translateY(100%); opacity: 0; }
+      100% { transform: translateY(0); opacity: 1; }
     }
 
     section {
-      padding: 80px 40px;
-    }
-
-    .content {
-      max-width: 960px;
+      padding: 80px 10vw;
+      max-width: 1000px;
       margin: 0 auto;
-      font-size: 1.1rem;
-      line-height: 1.7;
     }
 
-    h2 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
+    .subsection {
+      margin-top: 2rem;
     }
 
-    .highlight {
-      font-weight: bold;
-      color: #ffffff;
-    }
-
-    .cta {
-      text-align: center;
-      background: #1b263b;
-      padding: 60px 20px;
-    }
-
-    .cta h3 {
-      font-size: 1.8rem;
-      margin-bottom: 20px;
-    }
-
-    .cta button {
-      padding: 12px 28px;
-      font-size: 1rem;
-      background: #fca311;
-      border: none;
-      color: #000;
-      font-weight: bold;
-      cursor: pointer;
-      border-radius: 8px;
-      transition: background 0.3s ease;
-    }
-
-    .cta button:hover {
-      background: #ffb733;
-    }
-
-    /* Carousel */
-    .carousel-section {
-      background-color: #0d1b2a;
-      padding: 80px 40px;
-      text-align: center;
-    }
-
+    /* Carousel placeholder */
     .carousel {
-      position: relative;
-      max-width: 700px;
-      margin: 0 auto;
-      overflow: hidden;
-    }
-
-    .carousel-item {
-      display: none;
-      opacity: 0;
-      transition: opacity 0.5s ease-in-out;
-    }
-
-    .carousel-item.active {
-      display: block;
-      opacity: 1;
-    }
-
-    .carousel-item p {
-      font-size: 1.2rem;
-      margin-bottom: 10px;
-    }
-
-    .carousel-item span {
-      display: block;
-      font-weight: bold;
+      height: 400px;
+      background: #1b263b;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       color: #fca311;
-    }
-
-    /* Image Grid */
-    .image-grid-section {
-      background-color: #14213d;
-      padding: 80px 40px;
-      text-align: center;
-    }
-
-    .image-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-      margin-top: 40px;
-    }
-
-    .image-grid img {
-      width: 100%;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
-      transition: transform 0.3s ease;
-    }
-
-    .image-grid img:hover {
-      transform: scale(1.03);
+      font-size: 1.5em;
+      font-style: italic;
     }
   </style>
 </head>
@@ -168,89 +71,52 @@
 
   <!-- Hero Section -->
   <div class="hero">
-    <h1>MOSIP</h1>
+    Welcome to MOSIP
   </div>
 
-  <!-- Sticky Title -->
-  <div id="stickyTitle" class="sticky-title">Building Trust Through Identity</div>
+  <!-- Sticky Bar -->
+  <div class="sticky-bar">
+    MOSIP — Building Trust Through Identity
+  </div>
 
-  <!-- About Section -->
+  <!-- What is MOSIP -->
   <section>
-    <div class="content">
-      <h2>What is MOSIP?</h2>
-      <p>
-        <span class="highlight">The Modular Open Source Identity Platform (MOSIP)</span>
-        helps governments deliver secure, inclusive national ID systems.
-        It’s <span class="highlight">open-source</span>, <span class="highlight">privacy-first</span>,
-        and supports <span class="highlight">over 90 million identities</span> worldwide.
-      </p>
-      <br>
-      <p>
-        With a foundational national ID system in place, governments can build effective civil registries
-        and service delivery systems—powering everything from financial inclusion to healthcare access,
-        disaster relief, and digital governance.
-      </p>
+    <h2>What is MOSIP?</h2>
+    <p><strong>The Modular Open Source Identity Platform (MOSIP)</strong> helps governments deliver secure, inclusive national ID systems. It’s <strong>open-source, privacy-first</strong>, and supports <strong>over 90 million identities</strong> worldwide.</p>
+    <p>With a foundational national ID system in place, governments can build effective civil registries and service delivery systems—powering everything from financial inclusion to healthcare access, disaster relief, and digital governance.</p>
+  </section>
+
+  <!-- Moodboards / Branding / UX -->
+  <section>
+    <h2>Moodboards, Branding & UX Process</h2>
+    <p>Our visual branding journey began with identifying what MOSIP stands for—empowerment, resilience, and digital equity. We avoided visuals that implied dependency, focusing instead on strength, identity, and inclusion.</p>
+    
+    <div class="subsection">
+      <h4>Research & Discovery</h4>
+      <p>Through stakeholder interviews and competitor benchmarking, we understood MOSIP’s place in the global ID ecosystem. Insights shaped a human-centered foundation for the brand direction.</p>
+    </div>
+    
+    <div class="subsection">
+      <h4>UX/Visual Strategy</h4>
+      <p>We designed an experience framework that’s clean, modular, and scalable—mirroring the architecture of the platform itself. Typography, color, and layout were systemized into a design system for global reuse.</p>
+    </div>
+    
+    <div class="subsection">
+      <h4>Collaboration Model</h4>
+      <p>We worked hand-in-hand with MOSIP’s internal team across time zones, conducting weekly design sprints and async feedback loops that helped scale the system efficiently and transparently.</p>
     </div>
   </section>
 
-  <!-- Call to Action -->
-  <div class="cta">
-    <h3>Have a project in mind?</h3>
-    <button>Work With Us</button>
-  </div>
-
-  <!-- Carousel Section -->
-  <section class="carousel-section">
-    <div class="carousel" id="carousel">
-      <div class="carousel-item active">
-        <p>“We built a flexible, scalable identity system that respects local culture and global standards.”</p>
-        <span>– Design Lead</span>
-      </div>
-      <div class="carousel-item">
-        <p>“MOSIP’s UX framework mirrors the modularity of the tech—designed to adapt, built to grow.”</p>
-        <span>– UX Strategist</span>
-      </div>
-      <div class="carousel-item">
-        <p>“Cross-continent collaboration made this project dynamic, human-centered, and incredibly rewarding.”</p>
-        <span>– Visual Designer</span>
-      </div>
-    </div>
+  <!-- Image Array Placeholder -->
+  <section>
+    <h2>Array of Images</h2>
+    <p>[This section will host the visual array from the project. No images shown here as per instruction.]</p>
   </section>
 
-  <!-- Image Grid Section -->
-  <section class="image-grid-section">
-    <h2>Moodboards & Visuals</h2>
-    <div class="image-grid">
-      <img src="images/image1.png" alt="Visual 1">
-      <img src="images/image2.png" alt="Visual 2">
-      <img src="images/image3.png" alt="Visual 3">
-      <img src="images/image4.png" alt="Visual 4">
-      <img src="images/image5.png" alt="Visual 5">
-      <img src="images/image6.png" alt="Visual 6">
-    </div>
+  <!-- Scrollable Carousel Placeholder -->
+  <section class="carousel">
+    [Scrollable Carousel for Other Projects]
   </section>
 
-  <!-- Scripts -->
-  <script>
-    // Reveal Sticky Title after Hero
-    const stickyTitle = document.getElementById("stickyTitle");
-    window.addEventListener("scroll", () => {
-      if (window.scrollY > window.innerHeight * 0.9) {
-        stickyTitle.classList.add("visible");
-      } else {
-        stickyTitle.classList.remove("visible");
-      }
-    });
-
-    // Carousel Logic
-    const items = document.querySelectorAll('.carousel-item');
-    let index = 0;
-
-    setInterval(() => {
-      items[index].classList.remove('active');
-      index = (index + 1) % items.length;
-      items[index].classList.add('active');
-    }, 4000);
-  </script>
 </body>
 </html>
