@@ -8,115 +8,176 @@
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
-      background-color: #0f1b2c;
+      background-color: #0d1b2a;
       color: #e0e1dd;
-    }
-
-    /* HERO SECTION */
-    .hero {
-      height: 100vh;
-      background: #0051ff;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: white;
-      font-size: 3em;
-      font-weight: bold;
-      text-align: center;
-    }
-
-    /* STICKY HEADER SECTION */
-    .sticky-bar {
-      position: sticky;
-      top: 0;
-      background: #0f1b2c;
-      color: #fff;
-      padding: 1.5rem;
-      text-align: center;
-      font-size: 2em;
-      font-weight: bold;
-      z-index: 100;
-      animation: riseIn 0.7s ease-in-out;
-    }
-
-    @keyframes riseIn {
-      0% { transform: translateY(100%); opacity: 0; }
-      100% { transform: translateY(0); opacity: 1; }
+      scroll-behavior: smooth;
     }
 
     section {
-      padding: 80px 10vw;
-      max-width: 1000px;
-      margin: 0 auto;
+      padding: 4rem 10vw;
+      border-bottom: 1px solid #415a77;
     }
 
-    .subsection {
-      margin-top: 2rem;
+    h1, h2 {
+      color: #fca311;
+      margin-bottom: 1rem;
     }
 
-    /* Carousel placeholder */
-    .carousel {
-      height: 400px;
-      background: #1b263b;
+    p {
+      line-height: 1.6;
+      color: #e0e1dd;
+    }
+
+    /* Sticky header logic */
+    .sticky-title {
+      position: sticky;
+      top: 0;
+      background-color: #0d1b2a;
+      z-index: 999;
+      padding: 1rem 10vw;
+      border-bottom: 1px solid #415a77;
+      display: none;
+      animation: fadeIn 0.3s ease-in-out forwards;
+    }
+
+    .show-sticky {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Carousel styling */
+    .carousel-container {
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      display: flex;
+      gap: 1.5rem;
+      padding: 2rem 10vw;
+    }
+
+    .carousel-track {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .carousel-card {
+      min-width: 300px;
+      height: 180px;
+      background-color: #1b263b;
+      color: #fca311;
+      border-radius: 8px;
+      padding: 1rem;
+      scroll-snap-align: start;
+      flex-shrink: 0;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #fca311;
-      font-size: 1.5em;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    /* Array of images placeholder */
+    .image-array-placeholder {
+      text-align: center;
       font-style: italic;
+      padding: 4rem 0;
+      border: 2px dashed #415a77;
+      margin: 2rem 0;
     }
   </style>
 </head>
 <body>
 
-  <!-- Hero Section -->
-  <div class="hero">
-    Welcome to MOSIP
+  <!-- Fullscreen Hero -->
+  <section style="height: 100vh; background-color: #1b263b; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+    <h1>MOSIP</h1>
+    <p>Building Trust Through Identity</p>
+  </section>
+
+  <!-- Sticky Header (Appears after scroll) -->
+  <div id="stickyHeader" class="sticky-title">
+    <strong>MOSIP – Building Trust Through Identity</strong>
   </div>
 
-  <!-- Sticky Bar -->
-  <div class="sticky-bar">
-    MOSIP — Building Trust Through Identity
-  </div>
-
-  <!-- What is MOSIP -->
+  <!-- What is MOSIP Section -->
   <section>
     <h2>What is MOSIP?</h2>
-    <p><strong>The Modular Open Source Identity Platform (MOSIP)</strong> helps governments deliver secure, inclusive national ID systems. It’s <strong>open-source, privacy-first</strong>, and supports <strong>over 90 million identities</strong> worldwide.</p>
-    <p>With a foundational national ID system in place, governments can build effective civil registries and service delivery systems—powering everything from financial inclusion to healthcare access, disaster relief, and digital governance.</p>
+    <p>
+      <strong>The Modular Open Source Identity Platform (MOSIP)</strong> helps governments deliver secure, inclusive national ID systems.
+      It’s <strong>open-source, privacy-first</strong>, and supports <strong>over 90 million identities</strong> worldwide.
+    </p>
+    <p>
+      With a foundational national ID system in place, governments can build effective civil registries and service delivery systems—
+      powering everything from financial inclusion to healthcare access, disaster relief, and digital governance.
+    </p>
   </section>
 
-  <!-- Moodboards / Branding / UX -->
+  <!-- Moodboards, Branding, UX Section -->
   <section>
     <h2>Moodboards, Branding & UX Process</h2>
-    <p>Our visual branding journey began with identifying what MOSIP stands for—empowerment, resilience, and digital equity. We avoided visuals that implied dependency, focusing instead on strength, identity, and inclusion.</p>
-    
-    <div class="subsection">
-      <h4>Research & Discovery</h4>
-      <p>Through stakeholder interviews and competitor benchmarking, we understood MOSIP’s place in the global ID ecosystem. Insights shaped a human-centered foundation for the brand direction.</p>
-    </div>
-    
-    <div class="subsection">
-      <h4>UX/Visual Strategy</h4>
-      <p>We designed an experience framework that’s clean, modular, and scalable—mirroring the architecture of the platform itself. Typography, color, and layout were systemized into a design system for global reuse.</p>
-    </div>
-    
-    <div class="subsection">
-      <h4>Collaboration Model</h4>
-      <p>We worked hand-in-hand with MOSIP’s internal team across time zones, conducting weekly design sprints and async feedback loops that helped scale the system efficiently and transparently.</p>
-    </div>
+    <p>
+      Our visual branding journey began with identifying what MOSIP stands for—empowerment, resilience, and digital equity. We avoided visuals
+      that implied dependency, focusing instead on strength, identity, and inclusion.
+    </p>
+    <p>
+      The brand language was crafted to be adaptable across all of MOSIP’s sub-brands, with a consistent but scalable visual identity.
+      Colors, fonts, and illustrations were chosen to respect local culture while maintaining modern clarity.
+    </p>
+
+    <h3>Research & Discovery</h3>
+    <p>
+      Through stakeholder interviews and competitor benchmarking, we understood MOSIP’s place in the global ID ecosystem.
+      Insights shaped a human-centered foundation for the brand direction.
+    </p>
+
+    <h3>UX/Visual Strategy</h3>
+    <p>
+      We designed an experience framework that’s clean, modular, and scalable—mirroring the architecture of the platform itself.
+      Typography, color, and layout were systemized into a design system for global reuse.
+    </p>
+
+    <h3>Collaboration Model</h3>
+    <p>
+      We worked hand-in-hand with MOSIP’s internal team across time zones, conducting weekly design sprints and async feedback loops
+      that helped scale the system efficiently and transparently.
+    </p>
   </section>
 
-  <!-- Image Array Placeholder -->
+  <!-- Array of Images Placeholder -->
+  <section class="image-array-placeholder">
+    (ARRAY OF IMAGES)
+  </section>
+
+  <!-- Scrollable Carousel Section -->
   <section>
-    <h2>Array of Images</h2>
-    <p>[This section will host the visual array from the project. No images shown here as per instruction.]</p>
+    <h2 style="text-align: center;">Other Projects</h2>
+    <div class="carousel-container">
+      <div class="carousel-track">
+        <div class="carousel-card">Project A</div>
+        <div class="carousel-card">Project B</div>
+        <div class="carousel-card">Project C</div>
+        <div class="carousel-card">Project D</div>
+        <div class="carousel-card">Project E</div>
+      </div>
+    </div>
   </section>
 
-  <!-- Scrollable Carousel Placeholder -->
-  <section class="carousel">
-    [Scrollable Carousel for Other Projects]
-  </section>
+  <!-- Sticky header scroll trigger -->
+  <script>
+    const stickyHeader = document.getElementById('stickyHeader');
+    const heroSectionHeight = window.innerHeight;
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > heroSectionHeight - 100) {
+        stickyHeader.classList.add('show-sticky');
+      } else {
+        stickyHeader.classList.remove('show-sticky');
+      }
+    });
+  </script>
 
 </body>
 </html>
