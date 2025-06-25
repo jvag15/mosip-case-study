@@ -24,42 +24,46 @@
       margin: auto;
     }
 
-    /* HERO SECTION */
     .hero {
-      height: 100vh;
-      width: 100vw;
-      background: url('Screenshot 2025-06-20 114904.png') center/cover no-repeat;
       position: relative;
+      height: 100vh;
+      background: url('Screenshot 2025-06-20 114904.png') center/cover no-repeat;
       overflow: hidden;
     }
 
-    .hero-content {
-      position: absolute;
-      bottom: 20%;
-      width: 100%;
+    .hero-inner {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
       text-align: center;
+      animation: riseIn 1.2s ease-out forwards;
+      z-index: 1;
       color: white;
-      transition: all 0.4s ease;
-      z-index: 10;
     }
 
-    .hero-content.sticky {
-      position: fixed;
-      top: 0;
-      left: 0;
-      bottom: unset;
-      padding: 20px 0;
-      background: rgba(0, 0, 0, 0.85);
+    @keyframes riseIn {
+      0% {
+        transform: translateY(100px);
+        opacity: 0;
+      }
+      100% {
+        transform: translateY(0);
+        opacity: 1;
+      }
     }
 
     .hero h1 {
       font-size: 64px;
       font-weight: bold;
+      margin-bottom: 12px;
     }
 
     .tagline {
       font-size: 20px;
-      margin-top: 12px;
       opacity: 0.9;
     }
 
@@ -180,28 +184,28 @@
 </head>
 <body>
 
-  <!-- HERO -->
-  <section class="hero" id="hero">
-    <div class="hero-content" id="heroContent">
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-inner">
       <h1>MOSIP</h1>
       <p class="tagline">Building Trust Through Identity</p>
       <p class="scroll-cue">↓ Scroll</p>
     </div>
   </section>
 
-  <!-- WHAT IS MOSIP -->
+  <!-- What is MOSIP -->
   <section>
     <h2>What is MOSIP?</h2>
     <p><strong>The Modular Open Source Identity Platform (MOSIP)</strong> helps governments deliver secure, inclusive national ID systems. It’s <strong>open-source</strong>, <strong>privacy-first</strong>, and supports <strong>over 90 million identities</strong> worldwide.</p>
     <p>With a foundational national ID system in place, governments can build effective civil registries and service delivery systems—powering everything from financial inclusion to healthcare access, disaster relief, and digital governance.</p>
   </section>
 
-  <!-- IMAGE ARRAY PLACEHOLDER -->
+  <!-- Image Array Placeholder -->
   <div class="image-array-placeholder">
     (Array of relevant images)
   </div>
 
-  <!-- MOODBOARDS & UX -->
+  <!-- Moodboards & UX -->
   <section>
     <h2>Moodboards, Branding & UX Process</h2>
     <p>Our visual branding journey began with identifying what MOSIP stands for—empowerment, resilience, and digital equity. We avoided visuals that implied dependency or pity, focusing instead on strength, identity, and inclusion.</p>
@@ -223,7 +227,7 @@
     </div>
   </section>
 
-  <!-- PROJECT CAROUSEL -->
+  <!-- Carousel -->
   <section>
     <h2>Other Projects</h2>
     <div style="position: relative;">
@@ -239,13 +243,12 @@
     </div>
   </section>
 
-  <!-- FOOTER -->
+  <!-- Footer CTA -->
   <footer>
     <div class="cta">Have a project in mind?</div>
     <button class="cta-button">Work With Us</button>
   </footer>
 
-  <!-- JS -->
   <script>
     function scrollCarousel(direction) {
       const carousel = document.getElementById("carousel");
@@ -255,16 +258,6 @@
         behavior: "smooth"
       });
     }
-
-    const heroContent = document.getElementById("heroContent");
-    window.addEventListener("scroll", () => {
-      const triggerPoint = window.innerHeight * 0.5;
-      if (window.scrollY > triggerPoint) {
-        heroContent.classList.add("sticky");
-      } else {
-        heroContent.classList.remove("sticky");
-      }
-    });
   </script>
 
 </body>
